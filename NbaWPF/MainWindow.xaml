@@ -1,0 +1,43 @@
+﻿<Window x:Class="NbaWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NbaWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="707" Width="1033">
+
+    <DockPanel LastChildFill="True">
+        <Border BorderBrush="Aqua" DockPanel.Dock="Bottom" BorderThickness="1">
+            <StackPanel Background="AliceBlue" Orientation="Vertical"/>
+        </Border>
+        <Border BorderBrush="DarkBlue" DockPanel.Dock="Left" BorderThickness="0.1">
+            <StackPanel Background="AliceBlue" MinWidth="150">
+                <Label FontSize="24" Height="50" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" 
+                       Foreground="#FF14B0BF" FontWeight="Bold" FontStyle="Italic">Menu</Label>
+
+                <Button Name="Login" Content="Login" Height="50" 
+                        Click="Login_Click" Background="Beige" Foreground="Green" FontSize="12" FontWeight="Bold"/>
+                <Button Name="Startshopping" Content="Start shopping" Height="50"
+                        Click="Startshopping_Click" Background="Beige" Foreground="Red" FontSize="12" FontWeight="Bold"/>
+                <Button Name="UpdateOrder" Content="Update Order" Height="50"
+                        Click="UpdateOrder_Click" Background="Beige" Foreground="Chocolate" FontSize="12" FontWeight="Bold"/>
+                <Button Name="GenerateBill" Content="Generate Bill" Height="50"
+                        Click="GenerateBill_Click" Background="Beige" Foreground="HotPink" FontSize="12" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="DarkBlue" BorderThickness="0.1" DockPanel.Dock="Top">
+            <StackPanel Background="Turquoise">
+                <Label BorderBrush="Black" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" 
+                       Foreground="OrangeRed" Content="NBA SHOP"/>
+            </StackPanel>
+        </Border>
+        <Grid RenderTransformOrigin="0.5,0.5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Background="AliceBlue" Grid.Row="0" Name="MainFrame" NavigationUIVisibility="Hidden" Grid.RowSpan="2" TabIndex="2147483642"/>
+        </Grid>
+    </DockPanel>
+</Window>
