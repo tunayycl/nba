@@ -8,10 +8,10 @@
    "ModelNamespace": null,
    "OutputContextPath": null,
    "OutputPath": "Models",
-   "ProjectRootNamespace": "NbaLibrary",
+   "ProjectRootNamespace": "NbaShopService",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
-   "SelectedToBeGenerated": 2,
+   "SelectedToBeGenerated": 1,
    "Tables": [
       {
          "Name": "public.Team",

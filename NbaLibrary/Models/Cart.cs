@@ -8,13 +8,12 @@ namespace NbaLibrary.Models
     public partial class Cart
     {
         public int CartID { get; set; }
-        public double Price { get; set; }
         public int NumberOfProducts { get; set; }
         public string Products { get; set; }
         public DateOnly Date { get; set; }
-        public int? CustomerID { get; set; }
+        public int? purchaseID { get; set; }
 
         public virtual Customer CartNavigation { get; set; }
-        public virtual Customer Customer { get; set; }
+        public virtual purchase purchase { get; set; }
     }
 }

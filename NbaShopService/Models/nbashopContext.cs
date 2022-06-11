@@ -4,8 +4,9 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using NbaLibrary.Models;
 
-namespace NbaLibrary.Models
+namespace NbaShopService.Models
 {
     public partial class nbashopContext : DbContext
     {
@@ -23,6 +24,7 @@ namespace NbaLibrary.Models
         public virtual DbSet<Jersey> Jersey { get; set; }
         public virtual DbSet<Shorts> Shorts { get; set; }
         public virtual DbSet<Team> Team { get; set; }
+        public virtual DbSet<purchase> purchase { get; set; }
         public virtual DbSet<viewcustomerproducts> viewcustomerproducts { get; set; }
         public virtual DbSet<viewjerseytype> viewjerseytype { get; set; }
 
@@ -53,6 +55,11 @@ namespace NbaLibrary.Models
                     .HasForeignKey<Cart>(d => d.CartID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("customer_fk");
+
+                entity.HasOne(d => d.purchase)
+                    .WithMany(p => p.Cart)
+                    .HasForeignKey(d => d.purchaseID)
+                    .HasConstraintName("purchase_fk");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -78,7 +85,8 @@ namespace NbaLibrary.Models
                 entity.HasOne(d => d.CustomerNavigation)
                     .WithOne(p => p.Customer)
                     .HasForeignKey<Customer>(d => d.CustomerID)
-                    .HasConstraintName("customer_cart_cartid_fk");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("purchase_ID_fk");
             });
 
             modelBuilder.Entity<Jersey>(entity =>
@@ -155,6 +163,26 @@ namespace NbaLibrary.Models
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.Name).HasColumnType("character varying");
+            });
+
+            modelBuilder.Entity<purchase>(entity =>
+            {
+                entity.Property(e => e.purchaseID).ValueGeneratedNever();
+
+                entity.HasOne(d => d.CustomerNavigation)
+                    .WithMany(p => p.purchase)
+                    .HasForeignKey(d => d.CustomerID)
+                    .HasConstraintName("customerid_fk");
+
+                entity.HasOne(d => d.jersey)
+                    .WithMany(p => p.purchase)
+                    .HasForeignKey(d => d.jerseyid)
+                    .HasConstraintName("jerseyid_fk");
+
+                entity.HasOne(d => d.shorts)
+                    .WithMany(p => p.purchase)
+                    .HasForeignKey(d => d.shortsid)
+                    .HasConstraintName("shortsid_fk");
             });
 
             modelBuilder.Entity<viewcustomerproducts>(entity =>

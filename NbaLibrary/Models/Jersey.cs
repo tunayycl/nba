@@ -7,6 +7,11 @@ namespace NbaLibrary.Models
 {
     public partial class Jersey
     {
+        public Jersey()
+        {
+            purchase = new HashSet<purchase>();
+        }
+
         public int JerseyID { get; set; }
         public string Gender { get; set; }
         public string Size { get; set; }
@@ -15,7 +20,9 @@ namespace NbaLibrary.Models
         public string Name { get; set; }
         public int Number { get; set; }
         public int? TeamID { get; set; }
+        public double? price { get; set; }
 
         public virtual Team Team { get; set; }
+        public virtual ICollection<purchase> purchase { get; set; }
     }
 }

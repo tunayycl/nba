@@ -1,0 +1,29 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.Pages"
+      xmlns:Models="clr-namespace:NbaLibrary.Models;assembly=NbaLibrary" x:Class="WPF.Pages.LoginPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="389" d:DesignWidth="649"
+      Title="LoginPage">
+
+    <Grid Margin="0,256,0,0">
+        <StackPanel  Margin="0,-256,0,0">
+            <TextBox TextWrapping="Wrap" Text="" Width="649" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="649" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="649" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="649" Height="30"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="649" Height="30"/>
+            <Button Content="Add" Width="650"/>
+            <Button Content="Update"/>
+            <Button Content="Delete">
+            </Button>
+            <Button x:Name="Showcustomers" Content="Show Customers" />
+
+        </StackPanel>
+        <ListBox x:Name="lbCustomers" Loaded="lbCustomers_Loaded"/>
+
+    </Grid>
+</Page>

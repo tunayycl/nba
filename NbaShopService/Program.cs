@@ -1,3 +1,5 @@
+using NbaShopService.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<nbashopContext>(ServiceLifetime.Singleton);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

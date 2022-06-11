@@ -7,6 +7,11 @@ namespace NbaLibrary.Models
 {
     public partial class Customer
     {
+        public Customer()
+        {
+            purchase = new HashSet<purchase>();
+        }
+
         public int CustomerID { get; set; }
         public string Firstname { get; set; }
         public string LastName { get; set; }
@@ -15,7 +20,8 @@ namespace NbaLibrary.Models
         public string Location { get; set; }
         public int Postcode { get; set; }
 
-        public virtual Cart CustomerNavigation { get; set; }
+        public virtual purchase CustomerNavigation { get; set; }
         public virtual Cart Cart { get; set; }
+        public virtual ICollection<purchase> purchase { get; set; }
     }
 }

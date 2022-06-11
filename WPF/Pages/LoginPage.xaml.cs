@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NbaLibrary;
 
-namespace NbaWPF.Pages
+namespace WPF.Pages
 {
     /// <summary>
     /// Interaktionslogik für LoginPage.xaml
@@ -23,6 +24,13 @@ namespace NbaWPF.Pages
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private async void lbCustomers_Loaded(object sender, RoutedEventArgs e)
+        {
+            lbCustomers.ItemsSource = await RestHelper.Method_WindowLoaded();
+            lbCustomers.Items.Refresh();
+            lbCustomers.SelectedIndex = 0;
         }
     }
 }
