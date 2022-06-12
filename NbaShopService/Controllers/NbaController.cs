@@ -12,39 +12,25 @@ namespace NbaShopService.Controllers
         static nbashopContext context = new nbashopContext();
 
         #region Team
-        [HttpGet("Team")]
-        public ActionResult<IEnumerable<Team>> GetTeam()
-        {
-            var t = context.Team;
-            if (t == null)
-                return NotFound();
-            return Ok(t);
-        }
 
-        [HttpGet("Team/Coast/{coast}")]
+        [HttpGet("Team/Coast/{coast}/Name")]
         public ActionResult<IEnumerable<Team>> GetCoast(string coast)
         {
-            var t = context.Team.Where(a => a.Coast == coast);
+            var t = context.Team.Where(a => a.Coast == coast).Select(a => a.Name);
             if (t == null)
                 return NotFound();
             return Ok(t);
         }
-
-        [HttpGet("Team/Name/{name}")]
-        public ActionResult<IEnumerable<Team>> GetTeamName(string name)
-        {
-            var t = context.Team.Where(a => a.Name == name);
-            if (t == null)
-                return NotFound();
-            return Ok(t);
-        }
+        
         #endregion
 
         #region Jersey
         [HttpPost("Jersey")]
-        public ActionResult<Jersey> AddJersey([FromBody] Jersey newJersey)
+        public ActionResult<Jersey> AddJersey(string jerseyname, int jerseynumber, string size, string gender)
         {
-            context.Jersey.Add(newJersey);
+            int nextjerseyid = context.Jersey.Max(a => a.JerseyID) + 1;
+            Jersey newj = new Jersey(nextjerseyid, gender, size, jerseyname, jerseynumber);
+            context.Jersey.Add(newj);
             context.SaveChangesAsync();
             return Ok();
         }
@@ -63,7 +49,6 @@ namespace NbaShopService.Controllers
                 p.JerseyID = jersey.JerseyID;
                 p.Gender = jersey.Gender;
                 p.Size = jersey.Size;
-                p.Description = jersey.Description;
                 p.Name = jersey.Name;
                 p.Number = jersey.Number;
                 context.SaveChangesAsync();
@@ -95,7 +80,6 @@ namespace NbaShopService.Controllers
                 p.ShortsID = shorts.ShortsID;
                 p.Gender = shorts.Gender;
                 p.Size = shorts.Size;
-                p.Description = shorts.Description;
                 context.SaveChangesAsync();
                 return Ok(p.ShortsID);
             }

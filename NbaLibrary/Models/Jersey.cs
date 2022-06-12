@@ -12,11 +12,18 @@ namespace NbaLibrary.Models
             purchase = new HashSet<purchase>();
         }
 
+        public Jersey(int jerseyid, string gender, string size, string name, int number)
+        { 
+            JerseyID = jerseyid;
+            Gender = gender;
+            Size = size;
+            Name = name;
+            Number = number;
+        }
+
         public int JerseyID { get; set; }
         public string Gender { get; set; }
         public string Size { get; set; }
-        public string Description { get; set; }
-        public string Image { get; set; }
         public string Name { get; set; }
         public int Number { get; set; }
         public int? TeamID { get; set; }
@@ -24,5 +31,7 @@ namespace NbaLibrary.Models
 
         public virtual Team Team { get; set; }
         public virtual ICollection<purchase> purchase { get; set; }
+
+        
     }
 }

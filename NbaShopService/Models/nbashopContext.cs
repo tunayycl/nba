@@ -93,15 +93,7 @@ namespace NbaShopService.Models
             {
                 entity.Property(e => e.JerseyID).ValueGeneratedNever();
 
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasColumnType("character varying");
-
                 entity.Property(e => e.Gender)
-                    .IsRequired()
-                    .HasColumnType("character varying");
-
-                entity.Property(e => e.Image)
                     .IsRequired()
                     .HasColumnType("character varying");
 
@@ -123,15 +115,7 @@ namespace NbaShopService.Models
             {
                 entity.Property(e => e.ShortsID).ValueGeneratedNever();
 
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasColumnType("character varying");
-
                 entity.Property(e => e.Gender)
-                    .IsRequired()
-                    .HasColumnType("character varying");
-
-                entity.Property(e => e.Image)
                     .IsRequired()
                     .HasColumnType("character varying");
 

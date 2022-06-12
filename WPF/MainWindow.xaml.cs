@@ -37,5 +37,11 @@ namespace WPF
             LoginPage loginPage = new LoginPage();
             pageload(loginPage);
         }
+
+        private void Startshopping_Click(object sender, RoutedEventArgs e)
+        {
+            StartShopping startShopping = new StartShopping();
+            pageload(startShopping);
+        }
     }
 }

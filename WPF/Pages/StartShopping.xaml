@@ -1,0 +1,27 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.Pages"
+      xmlns:Emit="clr-namespace:System.Reflection.Emit;assembly=System.Reflection.Emit.ILGeneration" x:Class="WPF.Pages.StartShopping"
+      mc:Ignorable="d" 
+      d:DesignHeight="389" d:DesignWidth="649"
+      Title="StartShopping">
+
+    <Grid>
+        <ComboBox x:Name="cbCoast" HorizontalAlignment="Left" Margin="2,4,0,0" VerticalAlignment="Top" Width="144" Height="35" SelectionChanged="cbCoast_SelectionChanged">
+            <ComboBoxItem>East</ComboBoxItem>
+            <ComboBoxItem >West</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="cbTeam" HorizontalAlignment="Left" Margin="162,4,0,0" VerticalAlignment="Top" Width="144" Height="35">
+        </ComboBox>
+        <Label Content="Jersey:" HorizontalAlignment="Left" Margin="1,82,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbName" TextWrapping="Wrap" Text="Name" Margin="60,60,466,294"/>
+        <TextBox x:Name="tbNumber" TextWrapping="Wrap" Text="Number" Width="120" Margin="62,105,467,246"/>
+        <TextBox x:Name="tbSize" TextWrapping="Wrap" Text="Size" Margin="59,152,471,199"/>
+        <TextBox x:Name="tbGender" TextWrapping="Wrap" Text="Gender" Margin="60,199,467,149" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="btn_AddJerseyToCart" Content="AddJerseyToCart" HorizontalAlignment="Left" Margin="72,245,0,0" VerticalAlignment="Top" Click="btn_AddJerseyToCart_Click"/>
+        <DataGrid x:Name="dg_jerseys" Margin="0,264,214,0"/>
+    </Grid>
+</Page>

@@ -19,7 +19,7 @@
                     <Button Name="Login" Content="Login" Height="50" 
                         Click="Login_Click" Background="Beige" Foreground="Green" FontSize="12" FontWeight="Bold"/>
                     <Button Name="Startshopping" Content="Start shopping" Height="50"
-                         Background="Beige" Foreground="Red" FontSize="12" FontWeight="Bold"/>
+                         Background="Beige" Foreground="Red" FontSize="12" FontWeight="Bold" Click="Startshopping_Click"/>
                     <Button Name="UpdateOrder" Content="Update Order" Height="50"
                          Background="Beige" Foreground="Chocolate" FontSize="12" FontWeight="Bold"/>
                     <Button Name="GenerateBill" Content="Generate Bill" Height="50"
